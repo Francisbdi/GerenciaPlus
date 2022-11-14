@@ -1,6 +1,6 @@
 import sqlite3
 import PySimpleGUI as sg
-
+#teste
 #CRIA A TELA DE CADASTRO 
 layout = [
     [sg.Text('Nome')],
