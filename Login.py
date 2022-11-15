@@ -13,4 +13,18 @@ layout = [
 
 #criar uma janela
 janela = sg.Window('Login', layout = layout)
-janela.read()
+events, values = janela.read()
+
+login = values['usuario']
+senha = values['senha']
+
+def VerificaLogin(l):
+    banco = sqlite3.connect('principal.db')
+    cursor = banco.cursor()
+
+    cursor.execute("SELECT * FROM users login == ?",(l))
+    pessoa = cursor.fetchone()
+    banco.commit()
+    banco.close()
+
+    return pessoa
