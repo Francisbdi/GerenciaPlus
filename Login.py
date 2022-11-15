@@ -19,7 +19,7 @@ login = values['usuario']
 senha = values['senha']
 
 def VerificaLogin(l):
-    banco = sqlite3.connect('princial.db')
+    banco = sqlite3.connect('principal.db')
     cursor = banco.cursor()
 
     cursor.execute("SELECT * FROM users login == ?",(l))
