@@ -1,4 +1,5 @@
 import sqlite3
+from biblioteca import *
 import PySimpleGUI as sg
 
 #CRIA A TELA DE CADASTRO 
@@ -24,4 +25,11 @@ layout = [
 
 janela = sg.Window('Cadastro', layout = layout)
 
-janela.read()
+#janela.read()
+
+while True:
+    event, values = janela.read()
+
+    if event == sg.WIN_CLOSED:
+        MostraAdeus()
+        break
