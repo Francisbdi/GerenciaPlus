@@ -25,9 +25,7 @@ def TelaCadastro():
     [sg.Button('Cadastrar')]
          ]
 #OBS: ACESSAR LINK PARA ENTENDER O sg.Radio https://holypython.com/gui-with-python-checkboxes-and-radio-buttons-pysimplegui-part-ii/
-
     janela = sg.Window('Cadastro', layout = layout)
-    
     while True:
         event, values = janela.read()
 
