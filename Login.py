@@ -1,5 +1,6 @@
 import sqlite3
 from biblioteca import *
+from Cadastro import *
 import PySimpleGUI as sg
 
 #Cria o layout da tela, sempre pensando em linhas
@@ -28,10 +29,23 @@ while True:
     elif event == 'Login':
         login = values['usuario']
         senha = values['senha']
+
+        if VerificaVazio(login) != 0:
     
-        #se o retorno do banco for igual a vazio entao ele mostra mensagem de erro
-        if Verifica_Login(login, senha) == None:
-            janela['mensagem'].update('Usuário ou senha incorreto!')
+            #se o retorno do banco for igual a vazio entao ele mostra mensagem de erro
+            if Verifica_Login(login) == None:
+                 janela['mensagem'].update('Usuário ou senha incorreto!')
+            else:
+                pessoa = Verifica_Login(login)
+                id = pessoa[0]
+                LoginFeito = pessoa[1]
+                SenhaFeito = pessoa[2]
+          
+                if SenhaFeito == senha:
+                    print ("ok")
+                else:
+                    janela['mensagem'].update('Usuário ou senha incorreto!')
         else:
-            pass
-            #deverá entrar no programa principal!
+            janela['mensagem'].update('Usuário ou senha incorreto!')
+    elif event == 'Cadastrar':
+        TelaCadastro()
