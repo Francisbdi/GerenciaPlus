@@ -16,15 +16,15 @@ def TelaCadastro():
     [sg.Input(key = 'tempo')],
     [sg.Text('Nome do estabelecimento')],
     [sg.Input(key = 'estabelecimento')],
-    [sg.Radio('Roupas', "Radio1", default = False, key = 'tipo1'), sg.Radio('Comidas', "Radio1", default = False, key = 'tipo2'),
-    sg.Radio('Artesanatos', "Radio1", default = False, key ='tipo3')],
+    [sg.Radio('Roupas', "Radio1", default = False, key = 'tipo1'), sg.Radio('Comidas', "Radio1", default = False, key = 'tipo2'), sg.Radio('Artesanatos', "Radio1", default = False, key ='tipo3')],
     [sg.Text('Usuário')],
     [sg.Input(key = 'usuario')],
     [sg.Text('Senha')],
     [sg.Input(key = 'senha')],
-    [sg.Button('Cadastrar')]
+    [sg.Button('Cadastrar')],
+    [sg.Text('', key = 'mensagem')]
          ]
-#OBS: ACESSAR LINK PARA ENTENDER O sg.Radio https://holypython.com/gui-with-python-checkboxes-and-radio-buttons-pysimplegui-part-ii/
+#OBS: ACESSAR LINK PARA ENTENDER O sg.Radio https://holypython.com/gui-with-python-checkboxes-or-radio-buttons-pysimplegui-part-ii/
     janela = sg.Window('Cadastro', layout = layout)
     while True:
         event, values = janela.read()
@@ -32,7 +32,7 @@ def TelaCadastro():
         if event == sg.WIN_CLOSED:
             MostraAdeus()
             break
-        
+        #assim que clicar no botão cadastrar ele vai pegar os campos preenchidos e jogar nas variaveis
         elif event == 'Cadastrar':
             nome = values['nome']
             endereco = values['endereco']
@@ -42,3 +42,21 @@ def TelaCadastro():
             tipo1 = values['tipo1']
             tipo2 = values['tipo2']
             tipo3 = values['tipo3']
+            login = values['usuario']
+            senha = values['senha']
+
+            #garante que todas as variaveis vao ser preeenchidas
+            if VerificaVazio(nome) !=0 and VerificaVazio(endereco) !=0 and VerificaVazio(telefone) !=0 and VerificaVazio(participacao) !=0 and VerificaVazio(estabelecinto) !=0 and VerificaVazio(login) !=0 and VerificaVazio(senha) !=0: 
+                
+                #caso esteja tudo ok ele vai verificar se foi marcado um dos tipos 
+                if tipo1 == True:
+                    janela['mensagem'].update('Escolha um tipo1!')
+                elif tipo2 == True:
+                    janela['mensagem'].update('Escolha um tipo2!')
+                elif tipo3 == True:
+                    janela['mensagem'].update('Escolha um tipo3!')
+                else:
+                    janela['mensagem'].update('Escolha um tipo!')
+            else:
+                #se algum campo não foi preenchido ele mostra a mensagem
+                CamposVazios()

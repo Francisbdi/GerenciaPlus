@@ -30,11 +30,12 @@ while True:
         login = values['usuario']
         senha = values['senha']
 
-        if VerificaVazio(login) != 0:
+        #verifica se estátudo preenchido
+        if VerificaVazio(login)!= 0 and VerificaVazio(senha) !=0:
     
             #se o retorno do banco for igual a vazio entao ele mostra mensagem de erro
             if Verifica_Login(login) == None:
-                 janela['mensagem'].update('Usuário ou senha incorreto!')
+                 UserInvalido()
             else:
                 pessoa = Verifica_Login(login)
                 id = pessoa[0]
@@ -44,8 +45,10 @@ while True:
                 if SenhaFeito == senha:
                     print ("ok")
                 else:
-                    janela['mensagem'].update('Usuário ou senha incorreto!')
+                    #se a senha estiver errada ele mostra o aviso
+                    UserInvalido()
         else:
-            janela['mensagem'].update('Usuário ou senha incorreto!')
+            #se um campo não estiver preenchido ele mosta a menmsagem
+            CamposVazios()
     elif event == 'Cadastrar':
         TelaCadastro()

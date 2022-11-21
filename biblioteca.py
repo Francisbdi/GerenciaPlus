@@ -9,6 +9,20 @@ def MostraAdeus():
     janela2 = sg.Window('Tchau', layout = layout2)
     janela2.read()
 
+def CamposVazios():
+    layout3 = [
+    [sg.Text('Não pode conter campos vazios')]
+              ]
+    janela3 = sg.Window('Erro', layout = layout3)
+    janela3.read()
+
+def UserInvalido():
+    layout4 = [
+    [sg.Text('Usuário ou senha inválido')]
+              ]
+    janela4 = sg.Window('Erro', layout = layout4)
+    janela4.read()
+
 def VerificaVazio(valor):
     if len(valor) == 0:
         return 0
