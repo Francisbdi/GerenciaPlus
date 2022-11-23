@@ -1,5 +1,6 @@
 import sqlite3
 import PySimpleGUI as sg
+from Cadastro import *
 
 #função que serve para dar tchau ao usuário
 def MostraAdeus():
@@ -41,3 +42,12 @@ def Verifica_Login(l):
         return pessoa
     else:
         return None
+
+def cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipoestabelecimento, usuario, senha):
+    conexao = sqlite3.connect('principal.db')
+    c = conexao.cursor()
+
+    c.execute("INSERT INTO clientes (nome, endereco, telefone, tempo, estabelecimento, tipoestabelecimento,) VALUES (?, ?, ?, ?, ?, ?)", (nome, endereco, telefone, participacao, estabelecimento, tipoestabelecimento ))
+    c.execute("INSERT INTO users (login, senha) VALUES (?, ?)", (usuario, senha))
+    conexao.commit()
+    conexao.close()

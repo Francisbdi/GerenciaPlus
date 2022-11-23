@@ -38,7 +38,7 @@ def TelaCadastro():
             endereco = values['endereco']
             telefone = values['telefone']
             participacao = values['tempo']
-            estabelecinto = values['estabelecimento']
+            estabelecimento = values['estabelecimento']
             tipo1 = values['tipo1']
             tipo2 = values['tipo2']
             tipo3 = values['tipo3']
@@ -46,14 +46,17 @@ def TelaCadastro():
             senha = values['senha']
 
             #garante que todas as variaveis vao ser preeenchidas
-            if VerificaVazio(nome) !=0 and VerificaVazio(endereco) !=0 and VerificaVazio(telefone) !=0 and VerificaVazio(participacao) !=0 and VerificaVazio(estabelecinto) !=0 and VerificaVazio(login) !=0 and VerificaVazio(senha) !=0: 
+            if len(nome) !=0 and len(endereco) !=0 and len(telefone) !=0 and len(participacao) !=0 and len(estabelecimento) !=0 and len(login) !=0 and len(senha) !=0: 
                 
                 #caso esteja tudo ok ele vai verificar se foi marcado um dos tipos 
                 if tipo1 == True:
+                    cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
                     janela['mensagem'].update('Escolha um tipo1!')
                 elif tipo2 == True:
+                    cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
                     janela['mensagem'].update('Escolha um tipo2!')
                 elif tipo3 == True:
+                    cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo3, login, senha)
                     janela['mensagem'].update('Escolha um tipo3!')
                 else:
                     janela['mensagem'].update('Escolha um tipo!')
