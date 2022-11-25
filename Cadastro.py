@@ -20,7 +20,7 @@ def TelaCadastro():
     [sg.Text('Usuário')],
     [sg.Input(key = 'usuario')],
     [sg.Text('Senha')],
-    [sg.Input(key = 'senha')],
+    [sg.Input(key = 'senha', password_char='•')],
     [sg.Button('Cadastrar')],
     [sg.Text('', key = 'mensagem')]
          ]
