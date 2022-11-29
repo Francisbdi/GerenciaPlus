@@ -1,6 +1,5 @@
 import sqlite3
 import PySimpleGUI as sg
-from Cadastro import *
 
 #função que serve para dar tchau ao usuário
 def MostraAdeus():
@@ -33,7 +32,7 @@ def VerificaVazio(valor):
 def Verifica_Login(l):
     con = sqlite3.connect('principal.db')
     cursor = con.cursor()
-    cursor.execute("SELECT * FROM users WHERE login = ?", (l))
+    cursor.execute("SELECT * FROM users WHERE login = ?",(l,))
     pessoa = cursor.fetchone()   
     con.commit()
     con.close()
@@ -47,7 +46,8 @@ def cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, t
     conexao = sqlite3.connect('principal.db')
     c = conexao.cursor()
 
-    c.execute("INSERT INTO clientes (nome, endereco, telefone, tempo, estabelecimento, tipoestabelecimento,) VALUES (?, ?, ?, ?, ?, ?)", (nome, endereco, telefone, participacao, estabelecimento, tipoestabelecimento ))
+    c.execute("INSERT INTO clientes (nome, endereco, telefone, tempo, estabelecimento, tipoestabelecimento) VALUES (?, ?, ?, ?, ?, ?)", (nome, endereco, telefone, participacao, estabelecimento, tipoestabelecimento))
     c.execute("INSERT INTO users (login, senha) VALUES (?, ?)", (usuario, senha))
     conexao.commit()
     conexao.close()
+

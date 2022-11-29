@@ -8,7 +8,7 @@ layout = [
     [sg.Text('Usuário')],
     [sg.Input(key = 'usuario')],
     [sg.Text('Senha')],
-    [sg.Input(key = 'senha', password_char='•')],
+    [sg.Input(key = 'senha')],
     [sg.Button('Login'), sg.Button('Cadastrar')],
     [sg.Text('', key = 'mensagem')],
 ]
@@ -43,7 +43,7 @@ while True:
                 SenhaFeito = pessoa[2]
           
                 if SenhaFeito == senha:
-                    print ("ok")
+                    janela['mensagem'].update('Login feito com sucesso!')
                 else:
                     #se a senha estiver errada ele mostra o aviso
                     UserInvalido()

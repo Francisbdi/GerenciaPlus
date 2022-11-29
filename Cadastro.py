@@ -1,5 +1,5 @@
 import sqlite3
-from biblioteca import *
+import biblioteca
 import PySimpleGUI as sg
 
 
@@ -30,7 +30,7 @@ def TelaCadastro():
         event, values = janela.read()
 
         if event == sg.WIN_CLOSED:
-            MostraAdeus()
+            biblioteca.biblioteca.MostraAdeus()
             break
         #assim que clicar no botão cadastrar ele vai pegar os campos preenchidos e jogar nas variaveis
         elif event == 'Cadastrar':
@@ -50,16 +50,19 @@ def TelaCadastro():
                 
                 #caso esteja tudo ok ele vai verificar se foi marcado um dos tipos 
                 if tipo1 == True:
-                    cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
+                    tipo1 = 'Roupas'
+                    biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
                     janela['mensagem'].update('Escolha um tipo1!')
                 elif tipo2 == True:
-                    cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
+                    tipo2 = 'Comidas'
+                    biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
                     janela['mensagem'].update('Escolha um tipo2!')
                 elif tipo3 == True:
-                    cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo3, login, senha)
+                    tipo3 = 'Artesanatos'
+                    biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo3, login, senha)
                     janela['mensagem'].update('Escolha um tipo3!')
                 else:
                     janela['mensagem'].update('Escolha um tipo!')
             else:
                 #se algum campo não foi preenchido ele mostra a mensagem
-                CamposVazios()
+                biblioteca.CamposVazios()
