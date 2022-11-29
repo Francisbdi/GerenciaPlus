@@ -20,7 +20,7 @@ def TelaCadastro():
     [sg.Text('Usuário')],
     [sg.Input(key = 'usuario')],
     [sg.Text('Senha')],
-    [sg.Input(key = 'senha', password_char='•')],
+    [sg.Input(key = 'senha', password_char='*')],
     [sg.Button('Cadastrar')],
     [sg.Text('', key = 'mensagem')]
          ]
@@ -30,7 +30,7 @@ def TelaCadastro():
         event, values = janela.read()
 
         if event == sg.WIN_CLOSED:
-            biblioteca.biblioteca.MostraAdeus()
+            biblioteca.MostraAdeus()
             break
         #assim que clicar no botão cadastrar ele vai pegar os campos preenchidos e jogar nas variaveis
         elif event == 'Cadastrar':
@@ -47,22 +47,29 @@ def TelaCadastro():
 
             #garante que todas as variaveis vao ser preeenchidas
             if len(nome) !=0 and len(endereco) !=0 and len(telefone) !=0 and len(participacao) !=0 and len(estabelecimento) !=0 and len(login) !=0 and len(senha) !=0: 
-                
-                #caso esteja tudo ok ele vai verificar se foi marcado um dos tipos 
+                    #caso esteja tudo ok ele vai verificar se foi marcado um dos tipos 
                 if tipo1 == True:
                     tipo1 = 'Roupas'
-                    biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
-                    janela['mensagem'].update('Escolha um tipo1!')
+                    if biblioteca.Verifica_Login(login) != None:
+                        biblioteca.UserInvalido()
+                    else:
+                        biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
+                        janela['mensagem'].update('Cadastrado com sucesso!')
                 elif tipo2 == True:
                     tipo2 = 'Comidas'
-                    biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
-                    janela['mensagem'].update('Escolha um tipo2!')
+                    if biblioteca.Verifica_Login(login)!= None:
+                        biblioteca.UserInvalido()
+                    else:
+                        biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
+                        janela['mensagem'].update('Cadastrado com sucesso!')
                 elif tipo3 == True:
                     tipo3 = 'Artesanatos'
-                    biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo3, login, senha)
-                    janela['mensagem'].update('Escolha um tipo3!')
+                    if biblioteca.Verifica_Login(login) != None:
+                        biblioteca.UserInvalido()
+                    else:
+                        biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo3, login, senha)
+                        janela['mensagem'].update('Cadastrado com sucesso!')
                 else:
                     janela['mensagem'].update('Escolha um tipo!')
             else:
-                #se algum campo não foi preenchido ele mostra a mensagem
                 biblioteca.CamposVazios()
