@@ -15,6 +15,6 @@ cursor.execute("CREATE TABLE clientes (id INTEGER, nome VARCHAR(50), endereco VA
 banco.commit()
 banco.close()
 
-cursor.execute("CREATE TABLE barracas (id INTEGER, A1 VARCHAR(1), A2 VARCHAR(1), A3 VARCHAR(1), B1 VARCHAR(1), B2 VARCHAR(1), B3 VARCHAR(1), R1 VARCHAR(1), R2 VARCHAR(1), R3 VARCHAR(1) ")
+cursor.execute("CREATE TABLE barracas (id INTEGER, A1 VARCHAR(1), A2 VARCHAR(1), A3 VARCHAR(1), B1 VARCHAR(1), B2 VARCHAR(1), B3 VARCHAR(1), R1 VARCHAR(1), R2 VARCHAR(1), R3 VARCHAR(1), PRIMARY KEY(id))")
 banco.commit()
 banco.close()
