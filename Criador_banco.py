@@ -14,3 +14,7 @@ cursor = banco.cursor()
 cursor.execute("CREATE TABLE clientes (id INTEGER, nome VARCHAR(50), endereco VARCHAR(50), telefone VARCHAR(13), tempo VARCHAR(4), estabelecimento VARCHAR(50), tipoestabelecimento VARCHAR(15), PRIMARY KEY(id))")
 banco.commit()
 banco.close()
+
+cursor.execute("CREATE TABLE barracas (id INTEGER, A1 VARCHAR(1), A2 VARCHAR(1), A3 VARCHAR(1), B1 VARCHAR(1), B2 VARCHAR(1), B3 VARCHAR(1), R1 VARCHAR(1), R2 VARCHAR(1), R3 VARCHAR(1) ")
+banco.commit()
+banco.close()
