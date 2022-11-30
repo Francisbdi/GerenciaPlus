@@ -50,4 +50,3 @@ def cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, t
     c.execute("INSERT INTO users (login, senha) VALUES (?, ?)", (usuario, senha))
     conexao.commit()
     conexao.close()
-
