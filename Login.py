@@ -1,4 +1,5 @@
 import sqlite3
+from principal import *
 from biblioteca import *
 from Cadastro import *
 import PySimpleGUI as sg
@@ -43,7 +44,7 @@ while True:
                 SenhaFeito = pessoa[2]
           
                 if SenhaFeito == senha:
-                    janela['mensagem'].update('Login feito com sucesso!')
+                   tela_principal()
                 else:
                     #se a senha estiver errada ele mostra o aviso
                     UserInvalido()

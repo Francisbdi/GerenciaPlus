@@ -15,6 +15,10 @@ cursor = banco.cursor()
 #banco.commit()
 #banco.close()
 
-cursor.execute("CREATE TABLE barracas (id INTEGER, nome VARCHAR(50), estabelecimento VARCHAR(50), preco INTEGER, status VARCHAR(10))")
+#cursor.execute("CREATE TABLE barracas (id INTEGER, tipo VARCHAR(5), nome VARCHAR(50), estabelecimento VARCHAR(50), preco INTEGER, status VARCHAR(10))")
+#banco.commit()
+#banco.close()
+
+cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('A1', 600, 'DISPONIVEL')")
 banco.commit()
 banco.close()
