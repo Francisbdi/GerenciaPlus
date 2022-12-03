@@ -22,35 +22,3 @@ cursor = banco.cursor()
 cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('A1', 600, 'DISPONIVEL')")
 banco.commit()
 banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('A2', 400, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('A3', 300, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('B1', 600, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('B2', 400, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('B3', 300, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('R1', 600, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('R2', 400, 'DISPONIVEL')")
-banco.commit()
-banco.close()
-
-cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('R1', 300, 'DISPONIVEL')")
-banco.commit()
-banco.close()
