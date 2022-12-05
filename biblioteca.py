@@ -54,3 +54,14 @@ def cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, t
     c.execute("INSERT INTO users (login, senha) VALUES (?, ?)", (usuario, senha))
     conexao.commit()
     conexao.close()
+
+#função para verificar o status no banco passando como parametro o seu tipo
+def Verifica_Status(verificador):
+    con = sqlite3.connect('principal.db')
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM barracas WHERE tipo = ?",(verificador,))
+    barraca = cursor.fetchone()   
+    con.commit()
+    con.close()
+
+    return barraca

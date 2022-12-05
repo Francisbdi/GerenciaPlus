@@ -1,7 +1,9 @@
 import sqlite3
 from biblioteca import *
 import PySimpleGUI as sg
+from Status import *
 
+#Botoes que vão simular os locais
 def tela_principal():
     layout = [
         [sg.Button('A1', button_color=('black', 'green')), sg.Button('A2'), sg.Button('A3')],
@@ -16,3 +18,12 @@ def tela_principal():
         if event == sg.WIN_CLOSED:
             MostraAdeus()
             break
+        #clicando no botao ele vai jogar o valor do tipo dele em uam variavel
+        if event == 'A1':
+            verificador = 'A1'
+            #verifica na função o tipo dela no banco
+            barraca = Verifica_Status(verificador)
+            #como o banco retorna uma tupla, é so usar a posição que ela aparece na tupla barraca e o upper() é para deixar tudo maiusculo
+            if barraca[5] == 'disponivel'.upper():
+                #usa a tupla na função que vai mostrar se ela esta disponivel
+                Mostra_Disponivel(barraca)
