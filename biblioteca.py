@@ -9,6 +9,7 @@ def MostraAdeus():
     janela2 = sg.Window('Tchau', layout = layout2)
     janela2.read()
 
+#função que avisa que não pode ter campos vazios
 def CamposVazios():
     layout3 = [
     [sg.Text('Não pode conter campos vazios')]
@@ -16,6 +17,7 @@ def CamposVazios():
     janela3 = sg.Window('Erro', layout = layout3)
     janela3.read()
 
+#função que avisa que o usuario ou a senha estão errados
 def UserInvalido():
     layout4 = [
     [sg.Text('Usuário ou senha inválido')]
@@ -23,6 +25,7 @@ def UserInvalido():
     janela4 = sg.Window('Erro', layout = layout4)
     janela4.read()
 
+#função de verificar se o campo está vazio
 def VerificaVazio(valor):
     if len(valor) == 0:
         return 0
@@ -42,6 +45,7 @@ def Verifica_Login(l):
     else:
         return None
 
+#função de cadastrar cliente
 def cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipoestabelecimento, usuario, senha):
     conexao = sqlite3.connect('principal.db')
     c = conexao.cursor()
