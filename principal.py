@@ -4,7 +4,9 @@ import PySimpleGUI as sg
 from Status import *
 
 #Botoes que vão simular os locais
-def tela_principal():
+def tela_principal(tupla_pessoa):
+    pessoa = tupla_pessoa
+
     layout = [
         [sg.Button('A1', button_color=('black', 'green')), sg.Button('A2'), sg.Button('A3')],
         [sg.Button('B1'), sg.Button('B2'), sg.Button('B3')],
@@ -26,4 +28,4 @@ def tela_principal():
             #como o banco retorna uma tupla, é so usar a posição que ela aparece na tupla barraca e o upper() é para deixar tudo maiusculo
             if barraca[5] == 'disponivel'.upper():
                 #usa a tupla na função que vai mostrar se ela esta disponivel
-                Mostra_Disponivel(barraca)
+                Mostra_Disponivel(barraca, pessoa)

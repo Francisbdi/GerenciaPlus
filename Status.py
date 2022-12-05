@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 from biblioteca import *
 
 #tela que vai aparecer cso esteja disponivel
-def Mostra_Disponivel(barraca):
+def Mostra_Disponivel(barraca, pessoa):
     layout = [
         [sg.Text('Código:'), sg.Text(barraca[1])],
         [sg.Text('Tipo:'), sg.Text('Alimento')],
