@@ -42,7 +42,8 @@ while True:
                 id = pessoa[0]
                 LoginFeito = pessoa[1]
                 SenhaFeito = pessoa[2]
-          
+
+                #nessa função pega_pessoa vai pegar a tupla de dados de quem fez o login, para poder realizar os cadastros no nome e id dessa pessoa
                 if SenhaFeito == senha:
                    dados = pega_pessoa(id)
                    tela_principal(dados)
