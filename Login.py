@@ -44,7 +44,8 @@ while True:
                 SenhaFeito = pessoa[2]
           
                 if SenhaFeito == senha:
-                   tela_principal(pessoa)
+                   dados = pega_pessoa(id)
+                   tela_principal(dados)
                 else:
                     #se a senha estiver errada ele mostra o aviso
                     UserInvalido()

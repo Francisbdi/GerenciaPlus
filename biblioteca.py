@@ -45,6 +45,16 @@ def Verifica_Login(l):
     else:
         return None
 
+def pega_pessoa(id):
+    con = sqlite3.connect('principal.db')
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM clientes WHERE id = ?",(id,))
+    pessoa = cursor.fetchone()   
+    con.commit()
+    con.close()
+
+    return pessoa
+    
 #função de cadastrar cliente
 def cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipoestabelecimento, usuario, senha):
     conexao = sqlite3.connect('principal.db')
@@ -65,3 +75,10 @@ def Verifica_Status(verificador):
     con.close()
 
     return barraca
+
+def Update_Status(verificador, id, nome, estabelecimento):
+    con = sqlite3.connect('principal.db')
+    cursor = con.cursor()
+    cursor.execute("UPDATE barracas SET id = ?, nome = ?, estabelecimento = ?, status = ? WHERE tipo = ?",(id, nome, estabelecimento, 'ALUGADO', verificador)) 
+    con.commit()
+    con.close()
