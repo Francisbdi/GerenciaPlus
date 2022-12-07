@@ -31,4 +31,8 @@ def tela_principal(tupla_dados):
                 #usa a tupla na função que vai mostrar se ela esta disponivel
                 Mostra_Disponivel(barraca, dados)
             elif barraca[5] == 'alugado'.upper():
-                Mostra_Disponivel(barraca, dados)
+                #usa a tupla na função que vai mostrar se ela esta alugado
+                Mostra_Alugado(barraca, dados)
+            elif barraca[5] == 'reservado'.upper():
+                #usa a tupla na função que vai mostrar se ela esta reservado
+                Mostra_Reservado(barraca, dados)

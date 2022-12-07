@@ -76,9 +76,9 @@ def Verifica_Status(verificador):
 
     return barraca
 
-def Update_Status(verificador, id, nome, estabelecimento):
+def Update_Status(verificador, id, nome, estabelecimento, status):
     con = sqlite3.connect('principal.db')
     cursor = con.cursor()
-    cursor.execute("UPDATE barracas SET id = ?, nome = ?, estabelecimento = ?, status = ? WHERE tipo = ?",(id, nome, estabelecimento, 'ALUGADO', verificador)) 
+    cursor.execute("UPDATE barracas SET id = ?, nome = ?, estabelecimento = ?, status = ? WHERE tipo = ?",(id, nome, estabelecimento, status, verificador)) 
     con.commit()
     con.close()
