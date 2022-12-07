@@ -8,12 +8,13 @@ def tela_principal(tupla_dados):
     dados = tupla_dados
 
     layout = [
+        [sg.Text('BARRACAS')],
         [sg.Button('A1', button_color=('black', 'green')), sg.Button('A2'), sg.Button('A3')],
         [sg.Button('B1'), sg.Button('B2'), sg.Button('B3')],
         [sg.Button('R1'), sg.Button('R2'), sg.Button('R3')]
     ]
 
-    janela = sg.Window('Festa', layout = layout)
+    janela = sg.Window('Festa', layout = layout)    
 
     while True:
         event, values = janela.read()
@@ -29,5 +30,5 @@ def tela_principal(tupla_dados):
             if barraca[5] == 'disponivel'.upper():
                 #usa a tupla na função que vai mostrar se ela esta disponivel
                 Mostra_Disponivel(barraca, dados)
-            elif barraca[5]:
-                print('ok')
+            elif barraca[5] == 'alugado'.upper():
+                Mostra_Disponivel(barraca, dados)

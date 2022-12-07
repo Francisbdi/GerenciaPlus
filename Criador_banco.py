@@ -19,6 +19,3 @@ cursor = banco.cursor()
 #banco.commit()
 #banco.close()
 
-#cursor.execute("INSERT INTO barracas (tipo, preco, status) VALUES ('R3', 300, 'DISPONIVEL')")
-#banco.commit()
-#banco.close()

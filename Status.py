@@ -21,4 +21,5 @@ def Mostra_Disponivel(barraca, tupla_dados):
         if event == 'Alugar':
             Update_Status(barraca[1], dados[0], dados[1], dados[5])
         if event == 'Reservar':
+            Update_Status(barraca[1], dados[0], dados[1], dados[4])
             pass
