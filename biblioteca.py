@@ -82,3 +82,17 @@ def Update_Status(verificador, id, nome, estabelecimento, status):
     cursor.execute("UPDATE barracas SET id = ?, nome = ?, estabelecimento = ?, status = ? WHERE tipo = ?",(id, nome, estabelecimento, status, verificador)) 
     con.commit()
     con.close()
+
+def Criar_Fila(verificador, id, nome, estabelecimento, tempo):
+    con = sqlite3.connect('principal.db')
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO fila (id, nome, estabelecimento, tempo, tipo) VALUES (?,?,?,?,?)", (id, nome, estabelecimento, tempo, verificador)) 
+    con.commit()
+    con.close()
+
+def Deleta_Fila(verificador):
+    con = sqlite3.connect("principal.db")
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM fila WHERE tipo = ?", (verificador,))
+    con.commit()
+    con.close()

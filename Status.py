@@ -16,7 +16,6 @@ def Mostra_Disponivel(barraca, tupla_dados):
         event, values = janela.read()
 
         if event == sg.WIN_CLOSED:
-            MostraAdeus()
             break
         if event == 'Alugar':
             status = 'ALUGADO'
@@ -58,14 +57,15 @@ def Mostra_Reservado(barraca, tupla_dados):
         event, values = janela.read()
 
         if event == sg.WIN_CLOSED:
-            MostraAdeus()
             break
         if event == 'Aguardar':
-            status = 'AGUARDANDO'
-            print ('ok')
+            Criar_Fila(barraca[1], dados[0], dados[1], dados[5], dados[4])
+        
         elif event == "Confirmar":
             status = 'ALUGADO'
+            Deleta_Fila(barraca[1])
             Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
+        
         elif event == 'Cancelar':
             status = 'DISPONIVEL'
             id = 'null'
