@@ -96,3 +96,30 @@ def Deleta_Fila(verificador):
     cursor.execute("DELETE FROM fila WHERE tipo = ?", (verificador,))
     con.commit()
     con.close()
+
+def Verifica_Fila(verificador):
+    con = sqlite3.connect('principal.db')
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM fila WHERE tipo = ?",(verificador,))
+    barraca = cursor.fetchone()   
+    con.commit()
+    con.close()
+
+    return barraca
+
+def Listar_fila():
+    con = sqlite3.connect("principal.db")
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM fila;")
+    fila = cursor.fetchall()
+    con.commit()
+    con.close()
+
+    maisTempo = 9999
+
+    for linha in fila:
+        if int(linha[3]) < maisTempo:
+            maisTempo = int(linha[3])
+            id = linha[0]
+            return
+
