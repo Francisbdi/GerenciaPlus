@@ -8,10 +8,15 @@ def tela_principal(tupla_dados):
     dados = tupla_dados
 
     layout = [
-        [sg.Text('BARRACAS')],
-        [sg.Button('A1', button_color=('black', 'green')), sg.Button('A2'), sg.Button('A3')],
-        [sg.Button('B1'), sg.Button('B2'), sg.Button('B3')],
-        [sg.Button('R1'), sg.Button('R2'), sg.Button('R3')]
+        [sg.Text('Seja Bem vindo ' + dados[1])],
+        [sg.Text('MAPA DAS BARRACAS!')],
+        [sg.Button('A1', size = (10,2)), sg.Button('A2', size = (10,2)), sg.Button('A3', size = (10,2))],
+        [sg.Button('B1', size = (10,2)), sg.Button('B2', size = (10,2)), sg.Button('B3', size = (10,2))],
+        [sg.Button('R1', size = (10,2)), sg.Button('R2',size = (10,2)), sg.Button('R3', size = (10,2))],
+        [sg.Text('Grupo A = Alimentos')],
+        [sg.Text('Grupo B = Bebidas')],
+        [sg.Text('Grupo R = Roupas')],
+        [sg.Text('Para mais informações verifique selecionando o lote.')]
     ]
 
     janela = sg.Window('Festa', layout = layout)    

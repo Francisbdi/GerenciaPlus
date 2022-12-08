@@ -43,7 +43,7 @@ def Mostra_Reservado(barraca, tupla_dados):
             [sg.Text('Código:'), sg.Text(barraca[1])],
             [sg.Text('Valor:'), sg.Text(barraca[4])],
             [sg.Text('Status:'), sg.Text(barraca[5])],
-            [sg.Button('Confirmar')]
+            [sg.Button('Confirmar'), sg.Button('Cancelar')]
         ]
     else:
         layout = [
@@ -62,7 +62,13 @@ def Mostra_Reservado(barraca, tupla_dados):
             break
         if event == 'Aguardar':
             status = 'AGUARDANDO'
-            pass
+            print ('ok')
         elif event == "Confirmar":
             status = 'ALUGADO'
             Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
+        elif event == 'Cancelar':
+            status = 'DISPONIVEL'
+            id = 'null'
+            nome = 'null'
+            estabelecimento = 'null'
+            Update_Status(barraca[1], id, nome, estabelecimento, status)
