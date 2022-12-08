@@ -122,4 +122,3 @@ def Listar_fila():
             maisTempo = int(linha[3])
             id = linha[0]
             return
-

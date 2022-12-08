@@ -75,4 +75,3 @@ def Mostra_Reservado(barraca, tupla_dados):
                 Update_Status(barraca[1], id, nome, estabelecimento, status)
             else:
                 id = Listar_fila()
-                print(id)
