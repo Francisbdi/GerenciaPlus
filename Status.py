@@ -38,12 +38,20 @@ def Mostra_Alugado(barraca, tupla_dados):
 
 def Mostra_Reservado(barraca, tupla_dados):
     dados = tupla_dados
-    layout = [
-        [sg.Text('Código:'), sg.Text(barraca[1])],
-        [sg.Text('Valor:'), sg.Text(barraca[4])],
-        [sg.Text('Status:'), sg.Text(barraca[5])],
-        [sg.Button('Aguardar')]
-    ]
+    if barraca[0] ==  dados[0]:
+        layout = [
+            [sg.Text('Código:'), sg.Text(barraca[1])],
+            [sg.Text('Valor:'), sg.Text(barraca[4])],
+            [sg.Text('Status:'), sg.Text(barraca[5])],
+            [sg.Button('Confirmar')]
+        ]
+    else:
+        layout = [
+            [sg.Text('Código:'), sg.Text(barraca[1])],
+            [sg.Text('Valor:'), sg.Text(barraca[4])],
+            [sg.Text('Status:'), sg.Text(barraca[5])],
+            [sg.Button('Aguardar')]
+        ]
     janela = sg.Window('Festa', layout = layout)
     
     while True:
@@ -55,3 +63,6 @@ def Mostra_Reservado(barraca, tupla_dados):
         if event == 'Aguardar':
             status = 'AGUARDANDO'
             pass
+        elif event == "Confirmar":
+            status = 'ALUGADO'
+            Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
