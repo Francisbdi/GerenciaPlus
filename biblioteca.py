@@ -120,5 +120,5 @@ def Listar_fila():
     for linha in fila:
         if int(linha[3]) < maisTempo:
             maisTempo = int(linha[3])
-            id = linha[0]
-            return
+            Update_Status(linha[5], linha[0], linha[1], linha[2], 'RESERVADO')
+            Deleta_Fila(linha[5])

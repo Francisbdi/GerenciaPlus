@@ -67,11 +67,11 @@ def Mostra_Reservado(barraca, tupla_dados):
             Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
         
         elif event == 'Cancelar':
-            if Verifica_Fila(barraca[1]) == None:
+            if Verifica_Fila (barraca[1]) == None:
                 status = 'DISPONIVEL'
                 id = 'null'
                 nome = 'null'
                 estabelecimento = 'null'
                 Update_Status(barraca[1], id, nome, estabelecimento, status)
             else:
-                id = Listar_fila()
+                Listar_fila()
