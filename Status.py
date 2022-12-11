@@ -20,9 +20,11 @@ def Mostra_Disponivel(barraca, tupla_dados):
         if event == 'Alugar':
             status = 'ALUGADO'
             Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
+            janela.close()
         elif event == 'Reservar':
             status = 'RESERVADO'
             Update_Status(barraca[1], dados[0], dados[1], dados[4], status)
+            janela.close()
 
 #tela que vai aparecer cso esteja disponivel
 def Mostra_Alugado(barraca, tupla_dados):
@@ -60,11 +62,14 @@ def Mostra_Reservado(barraca, tupla_dados):
             break
         if event == 'Aguardar':
             Criar_Fila(barraca[1], dados[0], dados[1], dados[5], dados[4])
+            janela.close()
+            
         
         elif event == "Confirmar":
             status = 'ALUGADO'
             Deleta_Fila(barraca[1])
             Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
+            janela.close()
         
         elif event == 'Cancelar':
             if Verifica_Fila (barraca[1]) == None:
@@ -73,5 +78,7 @@ def Mostra_Reservado(barraca, tupla_dados):
                 nome = 'null'
                 estabelecimento = 'null'
                 Update_Status(barraca[1], id, nome, estabelecimento, status)
+                janela.close()
             else:
                 Listar_fila()
+                janela.close()

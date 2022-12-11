@@ -30,7 +30,6 @@ def TelaCadastro():
         event, values = janela.read()
 
         if event == sg.WIN_CLOSED:
-            biblioteca.MostraAdeus()
             break
         #assim que clicar no botão cadastrar ele vai pegar os campos preenchidos e jogar nas variaveis
         elif event == 'Cadastrar':
@@ -54,21 +53,21 @@ def TelaCadastro():
                         biblioteca.UserInvalido()
                     else:
                         biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
-                        janela['mensagem'].update('Cadastrado com sucesso!')
+                        janela.close()
                 elif tipo2 == True:
                     tipo2 = 'Comidas'
                     if biblioteca.Verifica_Login(login)!= None:
                         biblioteca.UserInvalido()
                     else:
                         biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
-                        janela['mensagem'].update('Cadastrado com sucesso!')
+                        janela.close()
                 elif tipo3 == True:
                     tipo3 = 'Artesanatos'
                     if biblioteca.Verifica_Login(login) != None:
                         biblioteca.UserInvalido()
                     else:
                         biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo3, login, senha)
-                        janela['mensagem'].update('Cadastrado com sucesso!')
+                        janela.close()
                 else:
                     janela['mensagem'].update('Escolha um tipo!')
             else:

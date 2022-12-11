@@ -19,12 +19,11 @@ def tela_principal(tupla_dados):
         [sg.Text('Para mais informações verifique selecionando o lote.')]
     ]
 
-    janela = sg.Window('Festa', layout = layout)    
+    janela = sg.Window('GerênciaPlus', layout = layout)    
 
     while True:
         event, values = janela.read()
         if event == sg.WIN_CLOSED:
-            MostraAdeus()
             break
         #clicando no botao ele vai jogar o valor do tipo dele em uam variavel 
         if event == 'A1' or 'A2' or 'A3' or 'B1' or 'B3' or 'B3' or 'B1' or 'R2' or 'R3':
