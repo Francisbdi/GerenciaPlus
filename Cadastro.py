@@ -16,7 +16,7 @@ def TelaCadastro():
     [sg.Input(key = 'tempo')],
     [sg.Text('Nome do estabelecimento')],
     [sg.Input(key = 'estabelecimento')],
-    [sg.Radio('Roupas', "Radio1", default = False, key = 'tipo1'), sg.Radio('Comidas', "Radio1", default = False, key = 'tipo2'), sg.Radio('Artesanatos', "Radio1", default = False, key ='tipo3')],
+    [sg.Radio('Roupas', "Radio1", default = False, key = 'tipo1'), sg.Radio('Bebidas', "Radio1", default = False, key = 'tipo2'), sg.Radio('Alimentos', "Radio1", default = False, key ='tipo3')],
     [sg.Text('Usuário')],
     [sg.Input(key = 'usuario')],
     [sg.Text('Senha')],
@@ -55,14 +55,14 @@ def TelaCadastro():
                         biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo1, login, senha)
                         janela.close()
                 elif tipo2 == True:
-                    tipo2 = 'Comidas'
+                    tipo2 = 'Bebidas'
                     if biblioteca.Verifica_Login(login)!= None:
                         biblioteca.UserInvalido()
                     else:
                         biblioteca.cadastrar_cliente(nome, endereco, telefone, participacao, estabelecimento, tipo2, login, senha)
                         janela.close()
                 elif tipo3 == True:
-                    tipo3 = 'Artesanatos'
+                    tipo3 = 'Alimentos'
                     if biblioteca.Verifica_Login(login) != None:
                         biblioteca.UserInvalido()
                     else:

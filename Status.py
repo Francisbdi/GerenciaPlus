@@ -23,7 +23,7 @@ def Mostra_Disponivel(barraca, tupla_dados):
             janela.close()
         elif event == 'Reservar':
             status = 'RESERVADO'
-            Update_Status(barraca[1], dados[0], dados[1], dados[4], status)
+            Update_Status(barraca[1], dados[0], dados[1], dados[5], status)
             janela.close()
 
 #tela que vai aparecer cso esteja disponivel

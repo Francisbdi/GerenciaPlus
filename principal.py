@@ -31,12 +31,12 @@ def tela_principal(tupla_dados):
             #verifica na função o tipo dela no banco
             barraca = Verifica_Status(verificador)
             #como o banco retorna uma tupla, é so usar a posição que ela aparece na tupla barraca e o upper() é para deixar tudo maiusculo
-            if barraca[5] == 'disponivel'.upper():
+            if barraca[5] == 'DISPONIVEL':
                 #usa a tupla na função que vai mostrar se ela esta disponivel
                 Mostra_Disponivel(barraca, dados)
-            elif barraca[5] == 'alugado'.upper():
+            elif barraca[5] == 'ALUGADO':
                 #usa a tupla na função que vai mostrar se ela esta alugado
                 Mostra_Alugado(barraca, dados)
-            elif barraca[5] == 'reservado'.upper():
+            elif barraca[5] == 'RESERVADO':
                 #usa a tupla na função que vai mostrar se ela esta reservado
                 Mostra_Reservado(barraca, dados)
